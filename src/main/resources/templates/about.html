@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>About | Todo app</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lte IE 8]>
+    <script src="js/ie/html5shiv.js" th:src="@{/js/html5shiv.js}"></script><![endif]-->
+
+    <link rel="stylesheet" href="css/main.css" th:href="@{/css/main.css}"/>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="css/ie9.css" th:href="@{/css/ie9.css}"/><![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/ie8.css" th:href="@{/css/ie8.css}"/><![endif]-->
+</head>
+<body>
+
+<!-- Sidebar -->
+<section id="sidebar" th:include="fragments/sidePanelFragment :: sectionBar"></section>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- One -->
+    <section id="one" class="wrapper style2 spotlights">
+        <section>
+            <div class="content">
+                <div class="inner">
+                    <h2>User use cases</h2>
+                    <p>Secured login</p>
+                    <p>Register, with correct error processing</p>                    
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="content">
+                <div class="inner">
+                    <h2>Todo use cases, after user login</h2>
+                    <p>Show all Todo's for user</p>
+                    <p>Create new</p>
+                    <p>Modify existing</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+</div>
+
+<!-- Footer -->
+<footer th:replace="fragments/footer::footerBar"/>
+
+</body>
+</html>

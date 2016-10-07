@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Register | Todo app</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js" th:src="@{/js/html5shiv.js}"></script><![endif]-->
+
+		<link rel="stylesheet" href="assets/css/main.css" th:href="@{/css/main.css}"/>
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" th:href="@{/css/ie9.css}"/><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" th:href="@{/css/ie8.css}"/><![endif]-->
+	</head>
+	<body>
+
+		<!-- Sidebar -->
+        <section id="sidebar" th:include="fragments/sidePanelFragment :: sectionBar"></section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Login block -->
+					<section id="three" class="wrapper style1 fade-up" >
+						<div class="inner">
+							<h2>Please, enter your credentials</h2>
+							<p></p>
+							<div class="">
+								<section>
+									<form method="post" action="#"
+										  th:action="@{/register}"
+										  th:object="${user}">
+
+										<div class="field">
+											<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
+											<label th:if="${!#fields.hasErrors('email')}" for="username">Email</label>
+											<input type="email" th:field="*{email}" id="username" />
+										</div>
+										<div class="field">
+											<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" for="password"></label>
+											<label th:if="${!#fields.hasErrors('password')}" for="password">Password</label>
+											<input type="password" th:field="*{password}" id="password" />
+										</div>
+
+										<ul class="actions">
+											<li><input type="submit" value="Register" class="button submit" /></li>
+										</ul>
+									</form>
+								</section>
+							</div>
+						</div>
+					</section>
+			</div>
+
+        <!-- Footer -->
+        <footer th:replace="fragments/footer::footerBar"/>
+
+	</body>
+</html>

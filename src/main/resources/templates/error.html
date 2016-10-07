@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Error | Todo app</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lte IE 8]>
+    <script src="js/ie/html5shiv.js" th:src="@{/js/html5shiv.js}"></script><![endif]-->
+
+    <link rel="stylesheet" href="css/main.css" th:href="@{/css/main.css}"/>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="css/ie9.css" th:href="@{/css/ie9.css}"/><![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/ie8.css" th:href="@{/css/ie8.css}"/><![endif]-->
+</head>
+<body>
+
+<!-- Sidebar -->
+<!--<div th:include="sidePanelFragment :: sidePanel"></div>-->
+<section id="sidebar" th:include="fragments/sidePanelFragment :: sectionBar"></section>
+
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Intro -->
+    <section id="intro" class="wrapper style1 fullscreen fade-up">
+        <div class="inner">
+            <h1 th:text="${error}" th:if="*{#strings.length(error) > 4}"/>
+            <h3 th:text="'Required page cant be found'" th:if="*{#strings.trim(error) eq '404'}"></h3>
+
+            <h3 th:text="'Access restricted.'"
+                th:if="*{#strings.trim(error) eq '403  Access is denied'}"></h3>
+            <ul class="actions">
+                <li><a href="#" class="button scrolly" onclick="goBack()">Back</a></li>
+
+            </ul>
+        </div>
+    </section>
+</div>
+
+<footer th:replace="fragments/footer::footerBar"/>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+</body>
+</html>

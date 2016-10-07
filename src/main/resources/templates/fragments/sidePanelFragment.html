@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml">
+<body>
+		<!-- Sidebar -->
+		<section id="_sidebar" th:fragment="sectionBar">
+			<div class="inner">
+                <h2 th:text="${activeUser.email}" th:if="(${activeUser} ne null)"/>
+				<nav>
+					<ul>
+						<li><a href="#" th:href="@{/welcome}" th:if="(${activeUser} eq null)">Welcome</a></li>
+						<li><a href="#" th:href="@{/about}">About</a></li>
+						<li><a href="#" th:href="@{/register}" th:if="(${activeUser} eq null)">Register</a></li>
+
+						<li><a href="#" th:href="@{/login}" th:if="(${activeUser} eq null)">Login</a></li>
+                        <li><a href="#" th:href="@{/todo}" th:if="(${activeUser} ne null)">Todo</a></li>
+
+						<li>
+							<form id="logoutFrm" th:action="@{/logout}" method="post">
+								<a href="#three" onclick="document.getElementById('logoutFrm').submit();" th:href="@{/logout}" th:if="(${activeUser} ne null)">Logout</a>
+							</form>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+</body>
+</html>
